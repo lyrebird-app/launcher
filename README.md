@@ -71,4 +71,4 @@ Or, using the Flutter CLI, run:
 flutter pub global run lyrebird ./yourFile.arb
 ```
 
-This will start Lyrebird in your Browser.
+Open the URL printed to the standard output in your browser. Use `Ctrl+S` (or `Cmd+S` on a Mac) to save your changes.

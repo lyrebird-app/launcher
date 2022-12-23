@@ -11,4 +11,5 @@ Future main(List<String> args) async {
 
   final server = Server(file: File(result.arguments[0]));
   await server.run();
+  print('Open ${server.url} in your browser to get started.');
 }

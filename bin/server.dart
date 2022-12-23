@@ -4,6 +4,8 @@ import 'package:alfred/alfred.dart';
 
 class Server {
   final Alfred _app = Alfred();
+  String get url => 'http://${_app.server!.address.host}:${_app.server!.port}';
+
   final File file;
 
   Server({required this.file});
@@ -26,6 +28,6 @@ class Server {
 
     _app.get('/*', (req, res) => directory);
 
-    await _app.listen(32804, '127.0.0.1');
+    await _app.listen(32804, 'localhost');
   }
 }
