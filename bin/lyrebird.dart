@@ -1,8 +1,14 @@
+import 'dart:io';
+
+import 'package:args/args.dart';
+
 import 'server.dart';
 
-Future main() async {
-  final server = Server();
-  await server.run();
+Future main(List<String> args) async {
+  final parser = ArgParser();
+  final result = parser.parse(args);
+  if (result.arguments.isEmpty) throw 'Missing file argument';
 
-  // TODO: Open browser.
+  final server = Server(file: File(result.arguments[0]));
+  await server.run();
 }
