@@ -16,7 +16,7 @@ class Server {
     print('Serving from $directory.');
 
     // TODO: Return the file whose path was specified via CLI.
-    // _app.get('/file', (req, res) => File(...));
+    _app.get('/file', (req, res) => File('./demo.arb'));
 
     // TODO: Implement PUT /file.
 

@@ -1,7 +1,8 @@
 name: lyrebird
-description: Visual editor for Application Resuorce Bundle localization files to be used with the intl package.
+description: Visual editor for Application Resource Bundle localization files to be used with the intl package.
 version: 0.1.0
 homepage:
+repository: https://github.com/lyrebird-app/launcher
 
 environment:
   sdk: '>=2.18.2 <3.0.0'

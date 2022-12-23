@@ -1,3 +1,9 @@
+# Lyrebird binary directory
+www
+
+# Demo files
+demo.arb
+
 # Miscellaneous
 *.class
 *.log
