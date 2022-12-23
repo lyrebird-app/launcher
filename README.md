@@ -4,7 +4,7 @@
 
 A visual editor for `.arb` (Application Resource Bundle) localization files, enabling rapid development. It is specifically designed to be used for Dart and Flutter projects using the [intl](https://pub.dev/packages/intl) package.
 
-The editor runs locally on your machine, meaning you can use familiar versioning tools like Git and do not have to upload or download localizaton files.
+The editor runs locally on your machine, meaning you can use familiar versioning tools like Git and do not have to upload or download localization files.
 
 **Warning:** This project is very early in development, use with extreme caution! Make sure you have all important changes committed before trying it out.
 
