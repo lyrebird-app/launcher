@@ -8,6 +8,8 @@ The editor runs locally on your machine, meaning you can use familiar versioning
 
 **Warning:** This project is very early in development, use with extreme caution! Make sure you have all important changes committed before trying it out.
 
+<img src="./screenshot.png" alt="Screenshot">
+
 ## Contents
 
 * [Features](#features)
