@@ -38,7 +38,6 @@ The editor runs locally on your machine, meaning you can use familiar versioning
   * Select with branches
   * Plural with branches
     * Plural arguments
-  * Newlines
 
 ### Planned
 
