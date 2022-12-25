@@ -1,3 +1,8 @@
+## 0.2.1
+
+* Add basic example project
+* Support `.arb` files without `@@locale` entry 
+
 ## 0.2.0
 
 * Improve design
