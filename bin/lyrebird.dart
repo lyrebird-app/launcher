@@ -7,9 +7,11 @@ import 'server.dart';
 Future main(List<String> args) async {
   final parser = ArgParser();
   final result = parser.parse(args);
-  if (result.arguments.isEmpty) throw 'Missing file argument';
+  if (result.rest.isEmpty) throw 'Missing file argument';
 
-  final server = Server(file: File(result.arguments[0]));
+  final server = Server(
+    file: File(result.arguments[0]),
+  );
   await server.run();
   print('Open ${server.url} in your browser to get started.');
 }
