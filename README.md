@@ -13,7 +13,7 @@ The editor runs locally on your machine, meaning you can use familiar versioning
 
 <br>
 
-<img src="https://user-images.githubusercontent.com/8947616/209372160-cc87f7dd-bf97-4245-a518-9eb9aca023ca.png" alt="Screenshot">
+<img src="https://user-images.githubusercontent.com/8947616/209474797-8d511b16-2144-4f43-868a-6a4a078abc0c.png" alt="Screenshot">
 
 <br>
 
