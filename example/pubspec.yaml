@@ -1,0 +1,27 @@
+name: example
+description: An example project for Lyrebird with Flutter
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+  # Lyrebird is used as a development dependency, but could also be installed globally.
+  lyrebird:
+    path: ../
+
+flutter:
+  generate: true
+  uses-material-design: true
