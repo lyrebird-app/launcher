@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:isolate';
+import 'package:path/path.dart' show basename;
 import 'package:alfred/alfred.dart';
 
 class Server {
@@ -22,6 +23,7 @@ class Server {
     return Directory.fromUri(wwwUri);
   }
 
+  // TODO: The current implementation allows probing for existing directories on the server by passing something like `../test/file.arb` as path and seeing if it resolves.
   File _fileFromPath(String path) {
     final file = File(directory.absolute.uri
         .resolve(path)
@@ -49,6 +51,15 @@ class Server {
 
     _app.all('*', cors(origin: '*'));
 
+    _app.get('/files', (req, res) async {
+      // TODO: Include file metadata.
+      return await directory
+          .list()
+          .where((entity) => entity is File)
+          .map((file) => basename(file.path))
+          .toList();
+    });
+
     _app.get('/file', (req, res) async {
       final path = req.uri.queryParameters['path'];
       if (path != null) {
@@ -61,7 +72,6 @@ class Server {
       }
     });
 
-    // TODO: The current implementation allows probing for existing directories on the server by passing something like `../test/file.arb` as path and seeing if it resolves.
     // TODO: Only allow arb files?
     _app.put('/file', (req, res) async {
       final path = req.uri.queryParameters['path'];
