@@ -53,11 +53,17 @@ class Server {
 
     _app.get('/files', (req, res) async {
       // TODO: Include file metadata.
-      return await directory
-          .list()
-          .where((entity) => entity is File)
-          .map((file) => basename(file.path))
-          .toList();
+      return {
+        'directory': directory.absolute.uri
+            .normalizePath()
+            .toFilePath(windows: false)
+            .normalizePath,
+        'files': await directory
+            .list()
+            .where((entity) => entity is File)
+            .map((file) => basename(file.path))
+            .toList(),
+      };
     });
 
     _app.get('/file', (req, res) async {
