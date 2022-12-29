@@ -43,7 +43,6 @@ The editor runs locally on your machine, meaning you can use familiar versioning
 
 * Proper error handling
 * A "try it out" section to test your localizations
-* Editing multiple files at once, with one primary language
 * Creating new files
 * Dark theme
 * Support for XML tags
@@ -66,19 +65,17 @@ Optionally, you can add Lyrebird to your PATH variable. Consult [the Dart docume
 
 ## Usage
 
-Lyrebird can currently only edit a single `.arb` file at a time.
-
 If you added Lyrebird to your PATH in the previous step, simply run
 ```bash
-lyrebird ./yourFile.arb
+lyrebird ./path/to/arb/directory
 ```
 Otherwise, with the Dart CLI, run:
 ```bash
-dart pub global run lyrebird ./yourFile.arb
+dart pub global run lyrebird ./path/to/arb/directory
 ```
 Or, using the Flutter CLI, run:
 ```bash
-flutter pub global run lyrebird ./yourFile.arb
+flutter pub global run lyrebird ./path/to/arb/directory
 ```
 
 Open the URL printed to the standard output in your browser. Use `Ctrl+S` (or `Cmd+S` on a Mac) to save your changes.

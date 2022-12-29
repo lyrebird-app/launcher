@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Support for editing multiple files at once
+
 ## 0.2.1
 
 * Add basic example project
