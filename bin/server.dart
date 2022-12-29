@@ -25,18 +25,10 @@ class Server {
 
   // TODO: The current implementation allows probing for existing directories on the server by passing something like `../test/file.arb` as path and seeing if it resolves.
   File _fileFromPath(String path) {
-    final file = File(directory.absolute.uri
-        .resolve(path)
-        .normalizePath()
-        .toFilePath(windows: false)
-        .normalizePath);
+    final file = File.fromUri(directory.absolute.uri.resolve(path));
 
     // Check if the file is in the given directory.
-    if (file.parent.absolute.path !=
-        directory.absolute.uri
-            .normalizePath()
-            .toFilePath(windows: false)
-            .normalizePath) {
+    if (file.parent.absolute.uri != directory.absolute.uri) {
       throw 'You may not write to files outside the given directory.';
     }
 
@@ -47,17 +39,14 @@ class Server {
     final binaryDirectory = await _findDefaultBinaryDirectory();
 
     // TODO: Nicer (& colored) logging.
-    print('Serving from ${binaryDirectory}.');
+    print('Serving from $binaryDirectory}.');
 
     _app.all('*', cors(origin: '*'));
 
     _app.get('/files', (req, res) async {
       // TODO: Include file metadata.
       return {
-        'directory': directory.absolute.uri
-            .normalizePath()
-            .toFilePath(windows: false)
-            .normalizePath,
+        'directory': directory.absolute.uri.toFilePath(),
         'files': await directory
             .list()
             .where((entity) => entity is File)
