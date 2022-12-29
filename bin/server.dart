@@ -29,7 +29,7 @@ class Server {
 
     // Check if the file is in the given directory.
     if (file.parent.absolute.uri != directory.absolute.uri) {
-      throw 'You may not write to files outside the given directory.';
+      throw 'You may not access files outside the given directory.';
     }
 
     return file;
@@ -59,7 +59,7 @@ class Server {
       final path = req.uri.queryParameters['path'];
       if (path != null) {
         final file = _fileFromPath(path);
-        if (!await file.exists()) throw 'File to does not exist.';
+        if (!await file.exists()) throw 'File does not exist.';
         return file;
       } else {
         // TODO: Less sketchy validation.
