@@ -6,9 +6,9 @@ which generates source code for the [intl](https://pub.dev/packages/intl) packag
 
 Navigate to the example project in your terminal, then run
 ```bash
-flutter pub run lyrebird lib/l10n/app_en.arb
+flutter pub run lyrebird lib/l10n
 ```
-to start editing the `.arb` localization files.
+to start editing the `.arb` localization files in that directory.
 
 At any point, you can run
 ```bash
