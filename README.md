@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8947616/211386885-3672be90-6df5-4d36-8daf-2319ced33973.svg" width="512" alt="Lyrebird">
+  <img src="https://user-images.githubusercontent.com/8947616/211387982-b8fc2897-e0a7-4a27-b850-f46dea620c8c.svg" width="512" alt="Lyrebird">
 </p>
 <br>
 
