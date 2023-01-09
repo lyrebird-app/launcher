@@ -1,8 +1,7 @@
 <br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/8947616/209372156-a47d6ad5-7f2f-43b9-8b74-114392d8c091.svg" width="400" alt="Lyrebird">
+  <img src="https://user-images.githubusercontent.com/8947616/211387982-b8fc2897-e0a7-4a27-b850-f46dea620c8c.svg" width="512" alt="Lyrebird">
 </p>
-<br>
 <br>
 
 A visual editor for Application Resource Bundle (`.arb`) localization files, enabling rapid development. It is specifically designed to be used for Dart and Flutter projects using the [intl](https://pub.dev/packages/intl) package.
@@ -13,7 +12,9 @@ The editor runs locally on your machine, meaning you can use familiar versioning
 
 <br>
 
-<img src="https://user-images.githubusercontent.com/8947616/209474797-8d511b16-2144-4f43-868a-6a4a078abc0c.png" alt="Screenshot">
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8947616/209474797-8d511b16-2144-4f43-868a-6a4a078abc0c.png" alt="Screenshot">
+</p>
 
 <br>
 
