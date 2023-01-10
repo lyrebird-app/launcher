@@ -1,3 +1,8 @@
+## 0.4.0
+
+* Add validation system for ICU blocks and show warnings and error messages
+* Add the coolest logo you will ever see
+
 ## 0.3.0
 
 * Support for editing multiple files at once

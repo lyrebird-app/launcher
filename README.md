@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8947616/211387982-b8fc2897-e0a7-4a27-b850-f46dea620c8c.svg" width="512" alt="Lyrebird">
+  <img src="https://user-images.githubusercontent.com/8947616/211387982-b8fc2897-e0a7-4a27-b850-f46dea620c8c.svg" width="512" alt="Lyrebird - Localization tool for Dart and Flutter">
 </p>
 <br>
 
@@ -13,7 +13,7 @@ The editor runs locally on your machine, meaning you can use familiar versioning
 <br>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8947616/209474797-8d511b16-2144-4f43-868a-6a4a078abc0c.png" alt="Screenshot">
+  <img src="https://user-images.githubusercontent.com/8947616/209474797-8d511b16-2144-4f43-868a-6a4a078abc0c.png" alt="Lyrebird editor screenshot">
 </p>
 
 <br>
