@@ -1,3 +1,8 @@
+## 0.4.1
+
+* Fix placeholders not updating properly in argument dropdowns
+* Improve logging appearance (shoutouts [akoll](https://github.com/AKoll))
+
 ## 0.4.0
 
 * Add validation system for ICU blocks and show warnings and error messages
