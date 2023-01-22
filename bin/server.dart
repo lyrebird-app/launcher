@@ -39,7 +39,7 @@ class Server {
     final binaryDirectory = await _findDefaultBinaryDirectory();
 
     // TODO: Nicer (& colored) logging.
-    print('Serving from $binaryDirectory}.');
+    print('Serving from $binaryDirectory.');
 
     _app.all('*', cors(origin: '*'));
 
