@@ -11,6 +11,8 @@ dependencies:
   alfred: ^1.0.0+1
   args: ^2.3.1
   path: ^1.8.2
+  tint: ^2.0.0
+  emojis: ^0.9.9
 
 dev_dependencies: 
   lints: ^2.0.1

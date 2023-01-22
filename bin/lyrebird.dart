@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:tint/tint.dart';
+import 'package:emojis/emojis.dart';
 
 import 'server.dart';
 
@@ -13,5 +15,6 @@ Future main(List<String> args) async {
     directory: Directory(result.arguments[0]),
   );
   await server.run();
-  print('Open ${server.url} in your browser to get started.');
+  print(
+      '${Emojis.rocket} Open ${server.url.bold().underline()} in your browser to get started.');
 }

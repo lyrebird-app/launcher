@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'dart:isolate';
-import 'package:path/path.dart' show basename;
+
+import 'package:path/path.dart' show basename, extension;
 import 'package:alfred/alfred.dart';
+import 'package:tint/tint.dart';
+import 'package:emojis/emojis.dart';
 
 class Server {
   final Alfred _app = Alfred(logLevel: LogType.error);
@@ -12,7 +15,9 @@ class Server {
   Server({
     required this.directory,
   }) {
-    if (!directory.existsSync()) throw 'The given directory does not exist.';
+    if (!directory.existsSync()) {
+      throw 'The given directory does not exist or is not a directory.';
+    }
   }
 
   static Future<Directory> _findDefaultBinaryDirectory() async {
@@ -37,9 +42,6 @@ class Server {
 
   Future<void> run() async {
     final binaryDirectory = await _findDefaultBinaryDirectory();
-
-    // TODO: Nicer (& colored) logging.
-    print('Serving from $binaryDirectory.');
 
     _app.all('*', cors(origin: '*'));
 
@@ -85,5 +87,23 @@ class Server {
     });
 
     await _app.listen(32804, 'localhost');
+
+    print('${Emojis.compass} Listening on $url.');
+    print(
+        '  ${Emojis.worldMap} Serving static files from \'${binaryDirectory.path.blue()}\'.');
+    print(
+      '  ${Emojis.package} Language file directory: \'${directory.absolute.uri.toFilePath().green()}\'.',
+    );
+
+    final totalFiles =
+        await directory.list().where((entity) => entity is File).toList();
+    final arbFiles = totalFiles
+        .where((file) => extension(file.path).toLowerCase() == '.arb');
+    print(
+        '    ${Emojis.pencil} Contains ${'${arbFiles.length} .arb files'.green()} of ${totalFiles.length} files total.');
+    if (arbFiles.isEmpty) {
+      print(
+          '    ${Emojis.redExclamationMark} ${'Warning!'.yellow()} The given directory does not contain any .arb files.');
+    }
   }
 }
