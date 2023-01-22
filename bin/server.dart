@@ -4,7 +4,7 @@ import 'package:path/path.dart' show basename;
 import 'package:alfred/alfred.dart';
 
 class Server {
-  final Alfred _app = Alfred();
+  final Alfred _app = Alfred(logLevel: LogType.error);
   String get url => 'http://${_app.server!.address.host}:${_app.server!.port}';
 
   final Directory directory;
