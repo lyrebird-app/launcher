@@ -16,7 +16,17 @@ Future main(List<String> args) async {
     abbr: 'p',
     defaultsTo: '.',
     help:
-        'The Lyrebird project file, usually called l10n.yaml. If a directory is passed as this argument, a file called l10n.yaml in the given directory is used',
+        'The Lyrebird project file, usually called l10n.yaml. If a directory is passed as this argument, a file called l10n.yaml in the given directory is used.',
+  );
+  parser.addFlag(
+    'help',
+    abbr: 'h',
+    negatable: false,
+    callback: (v) {
+      print(parser.usage);
+      exit(0);
+    },
+    help: 'Displays this help message',
   );
   final result = parser.parse(args);
 
