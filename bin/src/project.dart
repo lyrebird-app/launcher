@@ -12,9 +12,11 @@ class Project {
   });
 
   factory Project.fromJson(dynamic json) {
+    final arbDirectory = json['arb-dir'] ?? 'lib/l10n';
+    final templateArbFile = json['template-arb-file'] ?? 'app_en.arb';
     return Project(
-      arbDirectory: Directory(json['arb-dir']),
-      templateArbFile: File(join(json['arb-dir'], json['template-arb-file'])),
+      arbDirectory: Directory(arbDirectory),
+      templateArbFile: File(join(arbDirectory, templateArbFile)),
     );
   }
 

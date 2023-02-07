@@ -23,8 +23,10 @@ Future main(List<String> args) async {
     abbr: 'h',
     negatable: false,
     callback: (v) {
-      print(parser.usage);
-      exit(0);
+      if (v) {
+        print(parser.usage);
+        exit(0);
+      }
     },
     help: 'Displays this help message',
   );

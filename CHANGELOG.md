@@ -1,3 +1,8 @@
+## 0.5.0+1
+
+* Acknowledge `l10n.yaml` default values
+* Fix Lyrebird not starting
+
 ## 0.5.0
 
 * Use `l10n.yaml` file as project configuration
