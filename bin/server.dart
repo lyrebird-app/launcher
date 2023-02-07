@@ -6,19 +6,15 @@ import 'package:alfred/alfred.dart';
 import 'package:tint/tint.dart';
 import 'package:emojis/emojis.dart';
 
+import 'src/project.dart';
+
 class Server {
   final Alfred _app = Alfred(logLevel: LogType.error);
   String get url => 'http://${_app.server!.address.host}:${_app.server!.port}';
 
-  final Directory directory;
+  final Project project;
 
-  Server({
-    required this.directory,
-  }) {
-    if (!directory.existsSync()) {
-      throw 'The given directory does not exist or is not a directory.';
-    }
-  }
+  Server({required this.project});
 
   static Future<Directory> _findDefaultBinaryDirectory() async {
     final wwwUri = await Isolate.resolvePackageUri(
@@ -30,10 +26,10 @@ class Server {
 
   // TODO: The current implementation allows probing for existing directories on the server by passing something like `../test/file.arb` as path and seeing if it resolves.
   File _fileFromPath(String path) {
-    final file = File.fromUri(directory.absolute.uri.resolve(path));
+    final file = File.fromUri(project.arbDirectory.absolute.uri.resolve(path));
 
     // Check if the file is in the given directory.
-    if (file.parent.absolute.uri != directory.absolute.uri) {
+    if (file.parent.absolute.uri != project.arbDirectory.absolute.uri) {
       throw 'You may not access files outside the given directory.';
     }
 
@@ -41,6 +37,7 @@ class Server {
   }
 
   Future<void> run() async {
+    await project.validate();
     final binaryDirectory = await _findDefaultBinaryDirectory();
 
     _app.all('*', cors(origin: '*'));
@@ -48,8 +45,8 @@ class Server {
     _app.get('/files', (req, res) async {
       // TODO: Include file metadata.
       return {
-        'directory': directory.absolute.uri.toFilePath(),
-        'files': await directory
+        'directory': project.arbDirectory.absolute.uri.toFilePath(),
+        'files': await project.arbDirectory
             .list()
             .where((entity) => entity is File)
             .map((file) => basename(file.path))
@@ -92,18 +89,20 @@ class Server {
     print(
         '  ${Emojis.worldMap} Serving static files from \'${binaryDirectory.path.blue()}\'.');
     print(
-      '  ${Emojis.package} Language file directory: \'${directory.absolute.uri.toFilePath().green()}\'.',
+      '  ${Emojis.package} ARB file directory: \'${project.arbDirectory.absolute.uri.toFilePath().green()}\'.',
     );
 
-    final totalFiles =
-        await directory.list().where((entity) => entity is File).toList();
+    final totalFiles = await project.arbDirectory
+        .list()
+        .where((entity) => entity is File)
+        .toList();
     final arbFiles = totalFiles
         .where((file) => extension(file.path).toLowerCase() == '.arb');
     print(
         '    ${Emojis.pencil} Contains ${'${arbFiles.length} .arb files'.green()} of ${totalFiles.length} files total.');
     if (arbFiles.isEmpty) {
       print(
-          '    ${Emojis.redExclamationMark} ${'Warning!'.yellow()} The given directory does not contain any .arb files.');
+          '    ${Emojis.redExclamationMark} ${'Warning!'.yellow()} The given ARB directory does not contain any .arb files.');
     }
   }
 }

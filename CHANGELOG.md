@@ -1,3 +1,8 @@
+## 0.5.0
+
+* Use `l10n.yaml` file as project configuration
+* Add website link
+
 ## 0.4.1
 
 * Fix placeholders not updating properly in argument dropdowns
