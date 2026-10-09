@@ -3,7 +3,7 @@
   <img src="https://user-images.githubusercontent.com/8947616/211387982-b8fc2897-e0a7-4a27-b850-f46dea620c8c.svg" width="512" alt="Lyrebird - Localization tool for Dart and Flutter">
 </p>
 <p align="center">
-  <a href="https://lyrebird.dev">Website</a> · <a href="https://lyrebird.dev/why-lyrebird">Documentation</a> · <a href="https://github.com/lyrebird-app">GitHub</a> · <a href="https://pub.dev/packages/lyrebird">pub.dev</a>
+  <a href="https://github.com/lyrebird-app">GitHub</a> · <a href="https://pub.dev/packages/lyrebird">pub.dev</a>
 </p>
 <br>
 
